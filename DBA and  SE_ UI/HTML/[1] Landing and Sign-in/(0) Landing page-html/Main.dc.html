@@ -31,6 +31,9 @@ body{margin:0}
 .btn.ow:hover{background:rgba(255,255,255,.14)}
 .btn:focus-visible,a:focus-visible,.tab:focus-visible{outline:2px solid #0072AB;outline-offset:2px}
 a{color:#0072AB;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+a:hover{color:#005a8a;text-decoration:underline}
+.nav .in>a:first-child:hover{opacity:.82}
+.nav a.hide:hover{color:#0072AB!important;text-decoration:underline!important;text-underline-offset:3px}
 .tab{flex:1 1 auto;height:44px;padding:0 8px;border:0;border-bottom:3px solid transparent;background:transparent;color:#4A5540;font:inherit;font-size:13px;font-weight:500;cursor:pointer}
 .tab.on{color:#2F4511;font-weight:600;border-bottom-color:#0072AB}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
@@ -76,5 +79,6 @@ class Component extends DCLogic {
 renderVals() { return {}; }
 }
 </script>
+<script src="../../navigation.js" defer></script>
 </body>
 </html>

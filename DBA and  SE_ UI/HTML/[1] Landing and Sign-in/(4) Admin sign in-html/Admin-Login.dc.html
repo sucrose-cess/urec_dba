@@ -31,17 +31,23 @@ body{margin:0}
 .btn.ow:hover{background:rgba(255,255,255,.14)}
 .btn:focus-visible,a:focus-visible,.tab:focus-visible{outline:2px solid #0072AB;outline-offset:2px}
 a{color:#0072AB;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+a:hover{color:#005a8a;text-decoration:underline}
+aside.side>a:first-child:hover{opacity:.85}
+aside.side>div a:hover{color:#fff!important;text-decoration:underline!important}
 .tab{flex:1 1 auto;height:44px;padding:0 8px;border:0;border-bottom:3px solid transparent;background:transparent;color:#4A5540;font:inherit;font-size:13px;font-weight:500;cursor:pointer}
 .tab.on{color:#2F4511;font-weight:600;border-bottom-color:#0072AB}
+.tab:hover{background:#F4F6F1;color:#2F4511}
+.tab.on:hover{background:#E6EBDC}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
 .eye{position:absolute;right:4px;top:4px;width:38px;height:38px;border:0;background:transparent;color:#4A5540;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.eye:hover{background:#E6EBDC;border-radius:4px}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
 .split{display:grid;grid-template-columns:5fr 6fr}
 @media(max-width:860px){.g2,.g4,.split{grid-template-columns:1fr}.side{display:none!important}.nav a.hide{display:none}.wm{font-size:44px!important}.pad{padding-left:20px!important;padding-right:20px!important}}
 </style>
 </helmet>
-<div class="root split" style="min-height:800px">
+<div class="root split" style="min-height:100vh">
 <aside class="side" style="background:linear-gradient(165deg,#2F4511,#223409);color:#fff;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
 <a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none"><span style="width:56px;height:56px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:none"><img src="./assets/5b51b8106faa17cbf94eb6dbc7585b5f.png" alt="PUP logo" style="width:46px;height:46px;object-fit:contain"></span><span style="width:56px;height:56px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:none"><img src="./assets/a2c3c22efde16ff996eff0ca29957b97.png" alt="CCIS logo" style="width:46px;height:46px;object-fit:contain"></span><span style="font-size:24px"><span class="h" style="color:#fff"><span style="font-weight:600">Ethi</span><span style="font-weight:800">CCIS</span></span></span></a>
 <div><h2 class="h" style="margin:0 0 16px;font-size:32px;line-height:1.25;font-weight:700">Committee access.</h2><div style="width:56px;height:3px;background:#ECE303;margin-bottom:24px"></div><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;color:#E6EBDC"><li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.55"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ECE303" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:3px"><path d="M5 12l5 5 9-10"></path></svg><span>For the Panel Chair and Assistant</span></li><li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.55"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ECE303" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:3px"><path d="M5 12l5 5 9-10"></path></svg><span>Assign evaluators and monitor every stage</span></li><li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.55"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ECE303" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:3px"><path d="M5 12l5 5 9-10"></path></svg><span>Issue certificates and review amendments</span></li></ul></div>
@@ -60,5 +66,6 @@ class Component extends DCLogic {
 renderVals() { return {}; }
 }
 </script>
+<script src="../../navigation.js" defer></script>
 </body>
 </html>
