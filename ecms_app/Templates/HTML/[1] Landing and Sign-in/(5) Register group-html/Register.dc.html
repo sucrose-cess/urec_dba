@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<base href="/HTML/[1] Landing and Sign-in/(5) Register group-html/">
 <meta charset="utf-8">
 <title>EthiCCIS – Register your group</title>
 <script src="./vendor/react.js"></script>
@@ -16,50 +17,100 @@ body{margin:0}
 *{box-sizing:border-box}
 .root{font-family:Poppins,Arial,sans-serif;color:#1B2412}
 .h{font-family:Montserrat,Arial,sans-serif}
-.in{max-width:1120px;margin:0 auto;width:100%}
 .f{width:100%;height:46px;border:1px solid #7C8870;border-radius:4px;padding:0 14px;font:inherit;font-size:15px;background:#fff;color:#1B2412}
 .f:hover{border-color:#2F4511}
 .f:focus{outline:2px solid #0072AB;outline-offset:1px;border-color:#0072AB}
 .l{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
 .btn{height:46px;padding:0 26px;border:2px solid #2F4511;border-radius:4px;background:#2F4511;color:#fff;font:inherit;font-weight:600;font-size:14px;letter-spacing:.01em;cursor:pointer;white-space:nowrap;transition:background .15s}
 .btn:hover{background:#223409}
-.btn.y{background:#ECE303;border-color:#ECE303;color:#1B2412}
-.btn.y:hover{background:#F4EC2B}
-.btn.o{background:transparent;color:#2F4511}
-.btn.o:hover{background:#E6EBDC}
-.btn.ow{background:transparent;border-color:#fff;color:#fff}
-.btn.ow:hover{background:rgba(255,255,255,.14)}
-.btn:focus-visible,a:focus-visible,.tab:focus-visible{outline:2px solid #0072AB;outline-offset:2px}
 a{color:#0072AB;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-a:hover{color:#005a8a;text-decoration:underline}
-aside.side>a:first-child:hover{opacity:.85}
-aside.side>div a:hover{color:#fff!important;text-decoration:underline!important}
-.tab{flex:1 1 auto;height:44px;padding:0 8px;border:0;border-bottom:3px solid transparent;background:transparent;color:#4A5540;font:inherit;font-size:13px;font-weight:500;cursor:pointer}
-.tab.on{color:#2F4511;font-weight:600;border-bottom-color:#0072AB}
-.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
-.eye{position:absolute;right:4px;top:4px;width:38px;height:38px;border:0;background:transparent;color:#4A5540;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
 .split{display:grid;grid-template-columns:5fr 6fr}
-@media(max-width:860px){.g2,.g4,.split{grid-template-columns:1fr}.side{display:none!important}.nav a.hide{display:none}.wm{font-size:44px!important}.pad{padding-left:20px!important;padding-right:20px!important}}
+@media(max-width:860px){.g2,.split{grid-template-columns:1fr}.side{display:none!important}}
 </style>
 </helmet>
 <div class="root split" style="min-height:100vh">
 <aside class="side" style="background:linear-gradient(165deg,#2F4511,#223409);color:#fff;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
-<a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none"><span style="width:56px;height:56px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:none"><img src="./assets/5b51b8106faa17cbf94eb6dbc7585b5f.png" alt="PUP logo" style="width:46px;height:46px;object-fit:contain"></span><span style="width:56px;height:56px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:none"><img src="./assets/a2c3c22efde16ff996eff0ca29957b97.png" alt="CCIS logo" style="width:46px;height:46px;object-fit:contain"></span><span style="font-size:24px"><span class="h" style="color:#fff"><span style="font-weight:600">Ethi</span><span style="font-weight:800">CCIS</span></span></span></a>
+<a href="/" style="display:flex;align-items:center;gap:12px;text-decoration:none"><span style="width:56px;height:56px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:none"><img src="./assets/5b51b8106faa17cbf94eb6dbc7585b5f.png" alt="PUP logo" style="width:46px;height:46px;object-fit:contain"></span><span style="width:56px;height:56px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:none"><img src="./assets/a2c3c22efde16ff996eff0ca29957b97.png" alt="CCIS logo" style="width:46px;height:46px;object-fit:contain"></span><span style="font-size:24px"><span class="h" style="color:#fff"><span style="font-weight:600">Ethi</span><span style="font-weight:800">CCIS</span></span></span></a>
 <div><h2 class="h" style="margin:0 0 16px;font-size:32px;line-height:1.25;font-weight:700">Start your clearance application.</h2><div style="width:56px;height:3px;background:#ECE303;margin-bottom:24px"></div><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;color:#E6EBDC"><li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.55"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ECE303" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:3px"><path d="M5 12l5 5 9-10"></path></svg><span>Register your group: The group representative fills in the group details.</span></li><li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.55"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ECE303" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:3px"><path d="M5 12l5 5 9-10"></path></svg><span>Receive your UREC number: Generated first come, first served, for the entire group.</span></li><li style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.55"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ECE303" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:3px"><path d="M5 12l5 5 9-10"></path></svg><span>Sign in and submit: Upload your forms and track every stage.</span></li></ul></div>
 <div style="font-size:12px;line-height:1.7;color:#C9D3B8;border-top:1px solid rgba(255,255,255,.25);padding-top:16px">CCIS College Research Ethics Committee (CLREC)<br>Polytechnic University of the Philippines</div>
 </aside>
 <main style="background:#F4F6F1;display:flex;flex-direction:column;padding:24px 40px 40px">
-<div><a href="#" style="font-size:14px;text-decoration:none">← Back to home</a></div>
-<div style="flex:1;display:flex;align-items:center;justify-content:center"><div style="width:100%;max-width:560px;background:#fff;border:1px solid #D5DBCB;border-radius:6px;padding:32px 36px;display:flex;flex-direction:column;gap:20px;box-shadow:0 2px 10px rgba(27,36,18,.07)"><div><h1 class="h" style="margin:0 0 8px;font-size:24px;font-weight:700;color:#2F4511">Register your group</h1><p style="margin:0;font-size:14px;line-height:1.6;color:#4A5540">One registration per thesis or capstone group, made by the group representative.</p></div>
-<div><label class="l" for="rn">Group representative name</label><input class="f" id="rn" type="text" placeholder="Lastname, Firstname M.I."></div>
-<div class="g2"><div><label class="l" for="sc">Section</label><input class="f" id="sc" type="text" placeholder="e.g. BSCS 4-1"></div><div><label class="l" for="sy">School year</label><select class="f" id="sy"><option>2026–2027</option><option>2025–2026</option></select></div></div>
-<div class="g2"><div><label class="l" for="gn">Group number</label><input class="f" id="gn" type="text" placeholder="e.g. 1"></div><div><label class="l" for="fic">Faculty-in-charge</label><select class="f" id="fic"><option>Select faculty</option></select></div></div>
-<div><label class="l" for="re">Email correspondence</label><input class="f" id="re" type="email" placeholder="name@iskolarngbayan.pup.edu.ph"></div>
-<div style="background:#F4F6F1;border:1px solid #D5DBCB;border-left:4px solid #ECE303;border-radius:4px;padding:14px 16px;font-size:13px;line-height:1.6"><strong>UREC Number:</strong>&nbsp;Generated when you register, first come, first served, and shared by the entire group.</div>
-<button class="btn" type="button" style="width:100%">Register group</button>
-<p style="margin:0;font-size:14px;text-align:center;color:#4A5540">Already registered? <a href="#">Sign in</a></p></div></div>
+<div><a href="/" style="font-size:14px;text-decoration:none">← Back to home</a></div>
+<div style="flex:1;display:flex;align-items:center;justify-content:center">
+  <form action="/register" method="POST" style="width:100%;max-width:560px;background:#fff;border:1px solid #D5DBCB;border-radius:6px;padding:32px 36px;display:flex;flex-direction:column;gap:18px;box-shadow:0 2px 10px rgba(27,36,18,.07)">
+    <div>
+      <h1 class="h" style="margin:0 0 8px;font-size:24px;font-weight:700;color:#2F4511">Register your group</h1>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:#4A5540">One registration per thesis or capstone group, made by the group representative.</p>
+    </div>
+
+    {% if error %}
+      <div style="background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;padding:12px 14px;border-radius:4px;font-size:13px;font-weight:600;">
+        ⚠ {{ error }}
+      </div>
+    {% endif %}
+
+    {% if created_urec %}
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;padding:14px 16px;border-radius:4px;font-size:13px;line-height:1.6;">
+        <strong>✓ Group Registered!</strong> Your UREC Number is <b>{{ created_urec }}</b>.<br>
+        Sign in with <b>{{ created_email }}</b> to upload your 8 documents.
+      </div>
+    {% endif %}
+
+    <div>
+      <label class="l" for="rn">Group representative name</label>
+      <input class="f" id="rn" name="rep_name" type="text" placeholder="Lastname, Firstname M.I." required>
+    </div>
+
+    <div class="g2">
+      <div>
+        <label class="l" for="sc">Section</label>
+        <input class="f" id="sc" name="section" type="text" placeholder="e.g. BSCS 4-1" required>
+      </div>
+      <div>
+        <label class="l" for="sy">School year</label>
+        <select class="f" id="sy" name="school_year">
+          <option value="2026-2027">2026–2027</option>
+          <option value="2025-2026">2025–2026</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div>
+        <label class="l" for="gn">Group number</label>
+        <input class="f" id="gn" name="group_no" type="number" min="1" placeholder="e.g. 1" required>
+      </div>
+      <div>
+        <label class="l" for="fic">Faculty-in-charge</label>
+        <select class="f" id="fic" name="adviser_id" required>
+          <option value="">Select faculty</option>
+          {% for fac in faculty_list %}
+            <option value="{{ fac.user_id }}">{{ fac.last_name }}, {{ fac.first_name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div>
+        <label class="l" for="re">Email correspondence</label>
+        <input class="f" id="re" name="email" type="email" placeholder="name@iskolarngbayan.pup.edu.ph" required>
+      </div>
+      <div>
+        <label class="l" for="pw">Account password</label>
+        <input class="f" id="pw" name="password" type="password" placeholder="Create password" required>
+      </div>
+    </div>
+
+    <div style="background:#F4F6F1;border:1px solid #D5DBCB;border-left:4px solid #ECE303;border-radius:4px;padding:14px 16px;font-size:13px;line-height:1.6">
+      <strong>UREC Number:</strong>&nbsp;Generated when you register, first come, first served, and shared by the entire group.
+    </div>
+
+    <button class="btn" type="submit" style="width:100%">Register group</button>
+    <p style="margin:0;font-size:14px;text-align:center;color:#4A5540">Already registered? <a href="/login/student">Sign in</a></p>
+  </form>
+</div>
 </main></div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":940}}'>

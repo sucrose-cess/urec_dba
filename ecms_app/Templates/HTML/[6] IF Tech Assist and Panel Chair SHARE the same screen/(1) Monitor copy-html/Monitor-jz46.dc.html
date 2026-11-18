@@ -1,13 +1,74 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Monitor</title><script src="./vendor/react.js"></script>
+<!doctype html><html lang="en"><head><base href="/HTML/[6] IF Tech Assist and Panel Chair SHARE the same screen/(1) Monitor copy-html/"><meta charset="utf-8"><title>Monitor</title><script src="./vendor/react.js"></script>
 <script src="./vendor/react-dom.js"></script>
-<script src="./support.js"></script><link rel="stylesheet" href="./app.css"></head><body><x-dc><helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Poppins:wght@400;500;600&amp;display=swap"><style>body{margin:0}</style></helmet><div class="pg" style="height:1000px"><div class="st">Polytechnic University of the Philippines · College of Computer and Information Sciences</div><div class="hd"><img src="./assets/f7d438fd81dad303e34a582a5cb110fe.png" alt="PUP seal"><img src="./assets/2cae85d3036103f6ce36a80605c0fdf7.png" alt="CCIS seal"><span class="br">Ethi<b>CCIS</b></span><div class="me"><span>Ria Sagum</span><span class="av">RS</span><button class="bt">Sign out</button></div></div><div class="bd"><nav class="sd"><div class="who"><b>Ria Sagum</b>Admin · Panel Chair</div><a class="on" href="#">Monitor</a><a href="#">Approvals</a><a href="#">Screening queue</a><a href="#">Evaluator Assignment</a></nav><main class="mn">
+<script src="./support.js"></script><link rel="stylesheet" href="./app.css"></head><body><x-dc><helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Poppins:wght@400;500;600&amp;display=swap"><style>body{margin:0}</style></helmet><div class="pg" style="min-height:1000px"><div class="st">Polytechnic University of the Philippines · College of Computer and Information Sciences</div><div class="hd"><img src="./assets/f7d438fd81dad303e34a582a5cb110fe.png" alt="PUP seal"><img src="./assets/2cae85d3036103f6ce36a80605c0fdf7.png" alt="CCIS seal"><span class="br">Ethi<b>CCIS</b></span><div class="me"><span>{{ session.get('full_name', 'Panel Chair') }}</span><span class="av">{{ session.get('full_name', 'PC')[:2].upper() }}</span><button class="bt" onclick="window.location.href='/logout'">Sign out</button></div></div><div class="bd"><nav class="sd"><div class="who"><b>{{ session.get('full_name', 'Panel Chair') }}</b>Admin · Panel Chair</div><a class="on" href="/panel-chair/monitor">Monitor</a><a href="/panel-chair/decisions">Approvals</a><a href="/panel-chair/screening">Screening queue</a><a href="/panel-chair/assign">Evaluator Assignment</a></nav><main class="mn">
+
 <div class="hero"><div><span class="eb">Overview</span><h1>Monitor</h1><i class="rl"></i><p>Every application, evaluator pair, and verdict.</p></div></div>
-<div class="g4"><div class="stt"><b>112</b><span>Applications</span></div><div class="stt y"><b>38</b><span>Under review</span></div><div class="stt"><b>61</b><span>Approved</span></div><div class="stt y"><b>11 days</b><span>Average turnaround</span></div></div>
-<div class="cd"><div class="chs"><button class="on">All</button><button>Technical Evaluation</button><button>Under Review</button><button>Approved</button><button>For Revision</button></div><table><tr><th>UREC</th><th>Title</th><th>Section</th><th>Status</th><th>Evaluator 1</th><th>Evaluator 2</th><th>Verdict</th></tr>
-<tr><td>CL-BSCS-2026-1</td><td>Dragons: Migration Patterns…</td><td>BSCS 4-1</td><td><span class="pl y">Technical Evaluation</span></td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>CL-BSCS-2026-2</td><td>Campus Wayfinding with AR</td><td>BSCS 4-2</td><td><span class="pl bl">Under Review</span></td><td>Lanie Amata</td><td>Raychel Nayre</td><td>—</td></tr>
-<tr><td>CL-BSIT-2026-1</td><td>Inventory System for Clinics</td><td>BSIT 4-1</td><td><span class="pl gr">Approved</span></td><td>Raychel Nayre</td><td>Lanie Amata</td><td>Approved</td></tr>
-<tr><td>CL-BSIT-2026-2</td><td>Sentiment Mining on Feedback</td><td>BSIT 4-3</td><td><span class="pl or">For Revision</span></td><td>Raychel Nayre</td><td>Lanie Amata</td><td>For Revision</td></tr></table></div>
-<div class="g2"><div class="cd"><h2>Turnaround vs 22-day baseline</h2><div class="bar"><i style="width:50%"></i></div><p style="margin:8px 0 0"><small>50% reduction reached: 22 days down to 11.</small></p></div><div class="cd y"><h2>By program</h2><small>BSCS · 64</small><div class="bar"><i style="width:57%"></i></div><small>BSIT · 48</small><div class="bar"><i style="width:43%;background:#ede100"></i></div></div></div>
-</main></div></div></x-dc><script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1000}}'>class Component extends DCLogic{renderVals(){return{}}}</script><script src="../../navigation.js" defer></script>
+
+<div class="g4">
+  <div class="stt"><b>{{ total_count }}</b><span>Applications</span></div>
+  <div class="stt y"><b>{{ under_review_count }}</b><span>Under review</span></div>
+  <div class="stt"><b>{{ cleared_count }}</b><span>Approved</span></div>
+  <div class="stt y"><b>11 days</b><span>Average turnaround</span></div>
+</div>
+
+<div class="cd">
+  <div class="chs">
+    <button type="button" class="on" onclick="filterMonitor('all', this)">All</button>
+    <button type="button" onclick="filterMonitor('In-Progress', this)">Screening / In-Progress</button>
+    <button type="button" onclick="filterMonitor('Pending Evaluator Follow-up', this)">Under Review</button>
+    <button type="button" onclick="filterMonitor('Completed (Cleared)', this)">Approved</button>
+  </div>
+  <table>
+    <tr><th>UREC</th><th>Title</th><th>Section</th><th>Status</th><th>Evaluator 1</th><th>Evaluator 2</th><th>Category</th></tr>
+    {% for row in submissions %}
+      {% set st = row.verdict_status %}
+      <tr class="mon-row" data-cat="{{ row.dashboard_category }}">
+        <td><b>{{ row.urec_no }}</b></td>
+        <td>{{ row.title }}</td>
+        <td>{{ row.section }} (G{{ row.group_no }})</td>
+        <td>
+          <span class="pl {{ 'gr' if st == 'Cleared' else ('bl' if st == 'Under Review' else ('or' if 'Revision' in st or 'Stalemate' in st else 'y')) }}">
+            {{ st }}
+          </span>
+        </td>
+        <td>{{ row.evaluator_1 or '—' }}</td>
+        <td>{{ row.evaluator_2 or '—' }}</td>
+        <td>{{ row.dashboard_category }}</td>
+      </tr>
+    {% else %}
+      <tr><td colspan="7">No applications found in the database yet.</td></tr>
+    {% endfor %}
+  </table>
+</div>
+
+<div class="g2">
+  <div class="cd">
+    <h2>Turnaround vs 22-day baseline</h2>
+    <div class="bar"><i id="turnBar" data-pct="50"></i></div>
+    <p style="margin:8px 0 0"><small>50% reduction target: 22 days down to 11.</small></p>
+  </div>
+  <div class="cd y">
+    <h2>By program</h2>
+    <small>BSCS · {{ bscs_count }}</small>
+    <div class="bar"><i id="bscsBar" data-pct="{{ bscs_pct }}"></i></div>
+    <small>BSIT · {{ bsit_count }}</small>
+    <div class="bar"><i id="bsitBar" data-pct="{{ bsit_pct }}" style="background:#ede100"></i></div>
+  </div>
+</div>
+
+</main></div></div></x-dc>
+<script>
+['turnBar', 'bscsBar', 'bsitBar'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.style.width = el.dataset.pct + '%';
+});
+function filterMonitor(cat, btn) {
+  document.querySelectorAll('.chs button').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.mon-row').forEach(row => {
+    row.style.display = (cat === 'all' || row.dataset.cat === cat) ? '' : 'none';
+  });
+}
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1000}}'>class Component extends DCLogic{renderVals(){return{}}}</script><script src="../../navigation.js" defer></script>
 </body></html>

@@ -1,17 +1,133 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Submit documents</title><script src="./vendor/react.js"></script>
+<!doctype html><html lang="en"><head><base href="/HTML/[2] Students/2a Student · Submit documents (nothing uploaded yet) copy-html/"><meta charset="utf-8"><title>Submit documents</title><script src="./vendor/react.js"></script>
 <script src="./vendor/react-dom.js"></script>
-<script src="./support.js"></script><link rel="stylesheet" href="./app.css"></head><body><x-dc><helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Poppins:wght@400;500;600&amp;display=swap"><style>body{margin:0}</style></helmet><div class="pg" style="height:1560px"><div class="st">Polytechnic University of the Philippines · College of Computer and Information Sciences</div><div class="hd"><img src="./assets/f7d438fd81dad303e34a582a5cb110fe.png" alt="PUP seal"><img src="./assets/2cae85d3036103f6ce36a80605c0fdf7.png" alt="CCIS seal"><span class="br">Ethi<b>CCIS</b></span><div class="me"><span>Arden Kyan Balisi</span><span class="av">AB</span><button class="bt">Sign out</button></div></div><div class="bd"><nav class="sd"><div class="who"><b>Arden Kyan Balisi</b>Group 3 · BSCS 4-1</div><a href="#">My application</a>
-<a class="on" href="#">Submit documents</a>
+<script src="./support.js"></script><link rel="stylesheet" href="./app.css"></head><body><x-dc><helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Poppins:wght@400;500;600&amp;display=swap"><style>body{margin:0}</style></helmet><div class="pg" style="height:1640px"><div class="st">Polytechnic University of the Philippines · College of Computer and Information Sciences</div><div class="hd"><img src="./assets/f7d438fd81dad303e34a582a5cb110fe.png" alt="PUP seal"><img src="./assets/2cae85d3036103f6ce36a80605c0fdf7.png" alt="CCIS seal"><span class="br">Ethi<b>CCIS</b></span><div class="me"><span>{{ session.get('full_name', 'Student') }}</span><span class="av">{{ session.get('full_name', 'ST')[:2].upper() }}</span><button class="bt" onclick="window.location.href='/logout'">Sign out</button></div></div><div class="bd"><nav class="sd"><div class="who"><b>{{ session.get('full_name', 'Student') }}</b>{% if submission %}Group {{ submission.group_no }} · {{ submission.section }}{% else %}Draft Application{% endif %}</div><a href="/student">My application</a>
+<a class="on" href="/student/documents">Submit documents</a>
 <a href="#">Certificates</a></nav><main class="mn">
-<div class="hero"><div><span class="eb">Application</span><h1>Submit your documents</h1><i class="rl"></i><p>One submission per group. Your UREC number is CL-BSCS-2026-1.</p></div></div>
-<div class="cd"><h2>Study details</h2><div class="g2"><div><label for="t">Project title</label><input class="in" id="t" value="Dragons: Migration Patterns using XGBoost and LSTM"></div><div><label for="d">Department</label><select class="in" id="d"><option>Computer Science</option></select></div></div></div>
-<div class="cd y"><h2>Researchers</h2><table><tr><th>Role</th><th>Name</th><th>Student ID</th><th>Email</th></tr>
-<tr><td>Lead researcher</td><td><input class="in" aria-label="Lead name" value="Arden Kyan Balisi"></td><td><input class="in" aria-label="Lead ID" value="2022-00001-MN-0"></td><td><input class="in" aria-label="Lead email" value="arden.balisi@iskolarngbayan.pup.edu.ph"></td></tr>
-<tr><td>Co-researcher 1</td><td><input class="in" aria-label="Co 1 name" placeholder="Firstname Lastname"></td><td><input class="in" aria-label="Co 1 ID" placeholder="Student ID or N/A"></td><td><input class="in" aria-label="Co 1 email" placeholder="Email or N/A"></td></tr>
-<tr><td>Co-researcher 2</td><td><input class="in" aria-label="Co 2 name" placeholder="Firstname Lastname"></td><td><input class="in" aria-label="Co 2 ID" placeholder="Student ID or N/A"></td><td><input class="in" aria-label="Co 2 email" placeholder="Email or N/A"></td></tr>
-<tr><td>Co-researcher 3</td><td><input class="in" aria-label="Co 3 name" placeholder="Firstname Lastname"></td><td><input class="in" aria-label="Co 3 ID" placeholder="Student ID or N/A"></td><td><input class="in" aria-label="Co 3 email" placeholder="Email or N/A"></td></tr></table></div>
-<div class="cd"><h2>Documents for review</h2><p style="margin:-6px 0 10px"><b>5 of 8 uploaded</b> · PDF only. Use the button on each form to upload or replace it.</p><div class="bar" style="margin-bottom:14px"><i style="width:62%"></i></div>
-<div class="g2"><div class="sl ok"><div><b>Form 9</b><small>✓ form-9.pdf</small></div><button class="bt">Replace</button></div><div class="sl ok"><div><b>Form 10</b><small>✓ form-10.pdf</small></div><button class="bt">Replace</button></div><div class="sl ok"><div><b>Form 11</b><small>✓ form-11.pdf</small></div><button class="bt">Replace</button></div><div class="sl ok"><div><b>Form 12</b><small>✓ form-12.pdf</small></div><button class="bt">Replace</button></div><div class="sl ok"><div><b>Form 13</b><small>✓ form-13.pdf</small></div><button class="bt">Replace</button></div><div class="sl"><div><b>Research Instrument</b><small>No file yet</small></div><button class="bt p">Upload</button></div><div class="sl"><div><b>Certification of Validity/Reliability</b><small>No file yet</small></div><button class="bt p">Upload</button></div><div class="sl"><div><b>Curriculum Vitae of the Researchers</b><small>No file yet</small></div><button class="bt p">Upload</button></div></div>
-<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:18px;padding:16px 20px;background:#eef1e8;border-radius:8px"><div><b>Ready to submit?</b><br><small>3 documents left: Research Instrument, Certification of Validity/Reliability, and Curriculum Vitae.</small></div><div style="display:flex;gap:10px"><button class="bt">Save draft</button><button class="bt" disabled="" style="background:#d9dccf;border-color:#b9bfae;color:#3d4634">Submit application</button></div></div></div>
-</main></div></div></x-dc><script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1560}}'>class Component extends DCLogic{renderVals(){return{}}}</script><script src="../../navigation.js" defer></script>
+
+{% set uploaded_count = uploaded_map|length %}
+{% set pct = ((uploaded_count / 8) * 100)|int %}
+
+<div class="hero">
+  <div>
+    <span class="eb">Application</span>
+    <h1>Submit your documents</h1>
+    <i class="rl"></i>
+    <p>{% if submission %}One submission per group. Your UREC number is <b>{{ submission.urec_no }}</b>.{% else %}Fill in your study details and click <b>Save draft</b> below to generate your UREC number.{% endif %}</p>
+    {% if error %}<p style="color:#b91c1c;font-weight:600;margin-top:6px;">{{ error }}</p>{% endif %}
+  </div>
+</div>
+
+<form id="detailsForm" action="/student/save-details" method="POST">
+  <div class="cd">
+    <h2>Study details</h2>
+    <div class="g2">
+      <div>
+        <label for="t">Project title</label>
+        <input class="in" id="t" name="title" value="{{ submission.title if submission else '' }}" placeholder="Enter your research title" required>
+      </div>
+      <div>
+        <label for="d">Department</label>
+        <select class="in" id="d" name="department">
+          <option value="Computer Science">Computer Science</option>
+          <option value="Information Technology">Information Technology</option>
+        </select>
+      </div>
+      <div>
+        <label for="sec">Section (e.g., BSCS 4-1)</label>
+        <input class="in" id="sec" name="section" value="{{ submission.section if submission else 'BSCS 4-1' }}" required>
+      </div>
+      <div>
+        <label for="grp">Group number</label>
+        <input class="in" id="grp" type="number" min="1" name="group_no" value="{{ submission.group_no if submission else 1 }}" required>
+      </div>
+      <div>
+        <label for="adv">Faculty-in-Charge / Adviser</label>
+        <select class="in" id="adv" name="adviser_id">
+          <option value="">-- Select Faculty Adviser --</option>
+          {% for adv in advisers %}
+            <option value="{{ adv.user_id }}" {% if submission and submission.adviser_id == adv.user_id %}selected{% endif %}>
+              {{ adv.first_name }} {{ adv.last_name }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="cd y">
+    <h2>Researchers</h2>
+    <table>
+      <tr><th>Role</th><th>Name</th><th>Student ID</th><th>Email</th></tr>
+      <tr>
+        <td>Lead researcher</td>
+        <td><input class="in" aria-label="Lead name" value="{{ session.get('full_name', '') }}" readonly></td>
+        <td><input class="in" name="lead_school_id" placeholder="e.g. 2023-00123-MN-0" value="{{ members[0].student_id if members else '' }}" required></td>
+        <td><input class="in" aria-label="Lead email" value="{{ current_user.email if current_user else '' }}" readonly></td>
+      </tr>
+      {% for i in range(1, 4) %}
+        {% set co = members[i] if members|length > i else None %}
+        <tr>
+          <td>Co-researcher {{ i }}</td>
+          <td><input class="in" name="co_name_{{ i }}" value="{{ (co.student_firstName ~ ' ' ~ co.student_lastName) if co else '' }}" placeholder="Firstname Lastname"></td>
+          <td><input class="in" name="co_sid_{{ i }}" value="{{ co.student_id if co else '' }}" placeholder="e.g. 2023-00456-MN-0"></td>
+          <td><input class="in" name="co_email_{{ i }}" value="" placeholder="Optional (not stored in DB)"></td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</form>
+
+<div class="cd">
+  <h2>Documents for review</h2>
+  <p style="margin:-6px 0 10px"><b>{{ uploaded_count }} of 8 uploaded</b> · PDF only. Use the button on each form to upload or replace it.</p>
+  <div class="bar" style="margin-bottom:14px"><i id="docBar" data-pct="{{ pct }}"></i></div>
+<script>document.getElementById('docBar').style.width = document.getElementById('docBar').dataset.pct + '%';</script>
+
+  <div class="g2">
+    {% for doc in required_docs %}
+      {% set f = uploaded_map.get(doc) %}
+      <div class="sl {{ 'ok' if f else '' }}">
+        <div>
+          <b>{{ doc }}</b>
+          {% if f %}
+            <small>✓ <a href="{{ f.file_url }}" target="_blank" style="color:inherit;">View PDF (v{{ f.version }})</a></small>
+          {% else %}
+            <small>No file yet</small>
+          {% endif %}
+        </div>
+        <form action="/student/upload" method="POST" enctype="multipart/form-data" style="margin:0;">
+          <input type="hidden" name="urec_no" value="{{ submission.urec_no if submission else '' }}">
+          <input type="hidden" name="doc_type" value="{{ doc }}">
+          <input type="file" name="pdf_file" accept="application/pdf" style="display:none;" onchange="this.form.submit()">
+          <button type="button"
+                  class="bt {{ '' if f else 'p' }}"
+                  {% if not submission %}disabled title="Save draft first to generate UREC No."{% endif %}
+                  onclick="this.previousElementSibling.click()">
+            {{ 'Replace' if f else 'Upload' }}
+          </button>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:18px;padding:16px 20px;background:#eef1e8;border-radius:8px">
+    <div>
+      <b>Ready to submit?</b><br>
+      <small>{% if uploaded_count >= 8 %}All 8 documents uploaded. You can now submit your application for screening.{% else %}{{ 8 - uploaded_count }} documents left. Save draft first, then upload each form to enable submission.{% endif %}</small>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button type="submit" form="detailsForm" class="bt">Save draft</button>
+      <form action="/student/submit-application" method="POST" style="margin:0;">
+        <input type="hidden" name="urec_no" value="{{ submission.urec_no if submission else '' }}">
+        <button type="submit"
+                class="bt {{ 'p' if (submission and uploaded_count >= 8) else '' }}"
+                {% if not submission or uploaded_count < 8 %}disabled style="background:#d9dccf;border-color:#b9bfae;color:#3d4634"{% endif %}>
+          Submit application
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+</main></div></div></x-dc><script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1640}}'>class Component extends DCLogic{renderVals(){return{}}}</script><script src="../../navigation.js" defer></script>
 </body></html>

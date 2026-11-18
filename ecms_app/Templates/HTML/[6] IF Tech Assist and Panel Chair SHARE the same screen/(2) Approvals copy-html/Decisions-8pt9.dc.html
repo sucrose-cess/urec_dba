@@ -1,9 +1,75 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Approvals</title><script src="./vendor/react.js"></script>
+<!doctype html><html lang="en"><head><base href="/HTML/[6] IF Tech Assist and Panel Chair SHARE the same screen/(2) Approvals copy-html/"><meta charset="utf-8"><title>Approvals</title><script src="./vendor/react.js"></script>
 <script src="./vendor/react-dom.js"></script>
-<script src="./support.js"></script><link rel="stylesheet" href="./app.css"></head><body><x-dc><helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Poppins:wght@400;500;600&amp;display=swap"><style>body{margin:0}</style></helmet><div class="pg" style="height:880px"><div class="st">Polytechnic University of the Philippines · College of Computer and Information Sciences</div><div class="hd"><img src="./assets/f7d438fd81dad303e34a582a5cb110fe.png" alt="PUP seal"><img src="./assets/2cae85d3036103f6ce36a80605c0fdf7.png" alt="CCIS seal"><span class="br">Ethi<b>CCIS</b></span><div class="me"><span>Ria Sagum</span><span class="av">RS</span><button class="bt">Sign out</button></div></div><div class="bd"><nav class="sd"><div class="who"><b>Ria Sagum</b>Admin · Panel Chair</div><a href="#">Monitor</a><a class="on" href="#">Approvals</a><a href="#">Screening queue</a><a href="#">Evaluator Assignment</a></nav><main class="mn">
-<div class="hero"><div><span class="eb">Needs your action</span><h1>Approvals</h1><i class="rl"></i><p>Split verdicts, amendments, and certificates to issue.</p></div></div>
-<div class="cd"><h2>Split verdicts</h2><table><tr><th>UREC</th><th>Title</th><th>Evaluator 1</th><th>Evaluator 2</th><th>Final verdict</th></tr><tr><td>CL-BSCS-2026-3</td><td>Federated Learning for Health Records</td><td>Raychel Nayre<br><span class="pl gr">Approved</span></td><td>Lanie Amata<br><span class="pl or">For revision</span></td><td><button class="bt p">Approve</button> <button class="bt">Send for revision</button></td></tr></table></div>
-<div class="cd y"><h2>Amendments</h2><table><tr><th>UREC</th><th>Change requested</th><th>File</th><th></th></tr><tr><td>CL-BSIT-2026-1</td><td>Added a second survey site</td><td><button class="bt">Open PDF</button></td><td><button class="bt p">Approve</button> <button class="bt">Return</button></td></tr></table></div>
-<div class="cd"><h2>Ready for certificate</h2><table><tr><th>UREC</th><th>Title</th><th></th></tr><tr><td>CL-BSIT-2026-1</td><td>Inventory System for Barangay Clinics</td><td><button class="bt yl">Issue certificate</button></td></tr></table></div>
+<script src="./support.js"></script><link rel="stylesheet" href="./app.css"></head><body><x-dc><helmet><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Poppins:wght@400;500;600&amp;display=swap"><style>body{margin:0}</style></helmet><div class="pg" style="min-height:880px"><div class="st">Polytechnic University of the Philippines · College of Computer and Information Sciences</div><div class="hd"><img src="./assets/f7d438fd81dad303e34a582a5cb110fe.png" alt="PUP seal"><img src="./assets/2cae85d3036103f6ce36a80605c0fdf7.png" alt="CCIS seal"><span class="br">Ethi<b>CCIS</b></span><div class="me"><span>{{ session.get('full_name', 'Panel Chair') }}</span><span class="av">{{ session.get('full_name', 'PC')[:2].upper() }}</span><button class="bt" onclick="window.location.href='/logout'">Sign out</button></div></div><div class="bd"><nav class="sd"><div class="who"><b>{{ session.get('full_name', 'Panel Chair') }}</b>Admin · Panel Chair</div><a href="/panel-chair/monitor">Monitor</a><a class="on" href="/panel-chair/decisions">Approvals</a><a href="/panel-chair/screening">Screening queue</a><a href="/panel-chair/assign">Evaluator Assignment</a></nav><main class="mn">
+
+<div class="hero">
+  <div>
+    <span class="eb">Needs your action</span>
+    <h1>Approvals</h1>
+    <i class="rl"></i>
+    <p>Split verdicts, amendments, and certificates to issue.</p>
+    {% if msg %}<p style="color:#15803d;font-weight:600;margin-top:6px;">✓ {{ msg }}</p>{% endif %}
+  </div>
+</div>
+
+<div class="cd">
+  <h2>Split verdicts (BR-05 Stalemates)</h2>
+  <table>
+    <tr><th>UREC</th><th>Title</th><th>Evaluator 1</th><th>Evaluator 2</th><th>Final verdict</th></tr>
+    {% for st in stalemates %}
+    <tr>
+      <td><b>{{ st.urec_no }}</b></td>
+      <td>{{ st.title }}</td>
+      <td>
+        {% if st.eval_list|length >= 1 %}
+          {{ st.eval_list[0].evaluator_name }}<br>
+          <span class="pl {{ 'gr' if st.eval_list[0].eval_status == 'Approved' else 'or' }}">{{ st.eval_list[0].eval_status }}</span>
+        {% else %}—{% endif %}
+      </td>
+      <td>
+        {% if st.eval_list|length >= 2 %}
+          {{ st.eval_list[1].evaluator_name }}<br>
+          <span class="pl {{ 'gr' if st.eval_list[1].eval_status == 'Approved' else 'or' }}">{{ st.eval_list[1].eval_status }}</span>
+        {% else %}—{% endif %}
+      </td>
+      <td>
+        <form action="/panel-chair/resolve-stalemate" method="POST" style="display:flex;gap:6px;margin:0;">
+          <input type="hidden" name="urec_no" value="{{ st.urec_no }}">
+          <button type="submit" name="decision" value="Cleared" class="bt p">Approve</button>
+          <button type="submit" name="decision" value="For Revision" class="bt">Send for revision</button>
+        </form>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="5">No split verdicts requiring Panel Chair override.</td></tr>
+    {% endfor %}
+  </table>
+</div>
+
+<div class="cd y">
+  <h2>Amendments</h2>
+  <table>
+    <tr><th>UREC</th><th>Change requested</th><th>Status</th></tr>
+    <tr><td colspan="3">No post-approval amendment requests pending.</td></tr>
+  </table>
+</div>
+
+<div class="cd">
+  <h2>Ready for certificate</h2>
+  <table>
+    <tr><th>UREC</th><th>Title</th><th>Lead Proponent</th><th></th></tr>
+    {% for c in cleared_list %}
+    <tr>
+      <td><b>{{ c.urec_no }}</b></td>
+      <td>{{ c.title }} ({{ c.section }})</td>
+      <td>{{ c.lead_proponent or 'Student Group' }}</td>
+      <td><button type="button" class="bt yl" onclick="alert('Ethical Clearance Certificate issued for {{ c.urec_no }}!')">Issue certificate</button></td>
+    </tr>
+    {% else %}
+    <tr><td colspan="4">No cleared submissions ready for certificate issuance yet.</td></tr>
+    {% endfor %}
+  </table>
+</div>
+
 </main></div></div></x-dc><script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":880}}'>class Component extends DCLogic{renderVals(){return{}}}</script><script src="../../navigation.js" defer></script>
 </body></html>
